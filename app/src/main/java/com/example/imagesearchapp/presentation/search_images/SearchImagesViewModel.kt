@@ -24,7 +24,7 @@ class SearchImagesViewModel @Inject constructor(
 
     // アプリ起動時に画面が表示されないことを防ぐため、searchImages メソッドを実行する
     init {
-        searchImages("osaka")
+        searchImages("programming")
     }
 
     // 画像検索を実行する関数
