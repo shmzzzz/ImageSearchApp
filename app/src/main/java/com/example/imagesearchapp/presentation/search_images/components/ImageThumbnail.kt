@@ -51,7 +51,7 @@ fun ImageThumbnail(
                 .padding(10.dp),
         ) {
             Column(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(0.8f)
             ) {
                 Text(
                     text = image.description ?: "No description",
