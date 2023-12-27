@@ -1,6 +1,7 @@
 package com.example.imagesearchapp.data.remote
 
 
+import com.example.imagesearchapp.domain.model.ImageDetail
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -32,3 +33,15 @@ data class ImageDetailDto(
     val user: UserX?,
     val width: Int?
 )
+
+fun ImageDetailDto.toImageDetail(): ImageDetail {
+    return ImageDetail(
+        description = description,
+        likes = likes,
+        imageUrl = urls!!.raw!!,
+        photographer = user?.username,
+        camera = exif?.name,
+        location = "${location?.city}, ${location?.country}",
+        downloads = downloads,
+    )
+}
