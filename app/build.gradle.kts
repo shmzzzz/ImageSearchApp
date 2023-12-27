@@ -78,6 +78,9 @@ dependencies {
     val hiltVersion = "2.44"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+
+    val navVersion = "2.5.3"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
 }
 
 // Allow references to generated code

@@ -1,4 +1,4 @@
-package com.example.imagesearchapp.ui.theme
+package com.example.imagesearchapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
