@@ -15,7 +15,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-// モジュールのライフサイクルがアプリケーションと同じレベルになる
+// SingletonComponentにすることでモジュールのライフサイクルがアプリケーションと同じレベルになる
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
