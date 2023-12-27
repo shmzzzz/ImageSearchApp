@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun searchImagesScreen(
+fun SearchImagesScreen(
     viewModel: SearchImagesViewModel = hiltViewModel(),
 ) {
     // ViewModelが管理しているStateを参照する
