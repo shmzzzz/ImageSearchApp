@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,11 +26,11 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         navController = navController,
                         // 画像検索画面を最初に表示する
-                        startDestination = ScreenRoute.SearchImageScreen.route,
+                        startDestination = ScreenRoute.SearchImagesScreen.route,
                     ) {
                         // NavHostBuilderは最後の引数かつ関数なのでNavHostBuilderは外に出せる
                         // 画像検索画面
-                        composable(route = ScreenRoute.SearchImageScreen.route) {
+                        composable(route = ScreenRoute.SearchImagesScreen.route) {
                             // TODO
                         }
                         // 画像詳細画面
