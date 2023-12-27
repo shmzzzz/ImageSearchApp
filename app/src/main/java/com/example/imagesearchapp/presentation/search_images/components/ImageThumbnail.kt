@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -33,6 +34,8 @@ fun ImageThumbnail(
     Box(
         modifier = Modifier
             .background(Color.Black)
+            // ローディング前後で高さが違いすぎないように、高さの最小値を設定する
+            .heightIn(min = 200.dp)
             .clickable { onClick(image) },
         contentAlignment = Alignment.BottomCenter,
     ) {
