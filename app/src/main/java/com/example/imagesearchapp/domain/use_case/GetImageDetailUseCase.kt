@@ -21,7 +21,7 @@ class GetImageDetailUseCase @Inject constructor(
             // 通信成功したか
             emit(NetworkResponse.Success<ImageDetail>(imageDetail))
         } catch (e: Exception) {
-            // 追伸失敗した場合はエラーメッセージを表示する
+            // 通信失敗した場合はエラーメッセージを表示する
             emit(NetworkResponse.Failure<ImageDetail>(e.message.toString()))
         }
     }

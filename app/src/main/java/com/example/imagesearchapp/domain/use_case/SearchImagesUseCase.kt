@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flow
 import java.lang.Exception
 import javax.inject.Inject
 
-class SearchImageUseCase @Inject constructor(
+class SearchImagesUseCase @Inject constructor(
     private val repository: ImageRepository
 ) {
     // 画像検索を実行する関数を定義する
