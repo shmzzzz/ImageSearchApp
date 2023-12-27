@@ -81,6 +81,8 @@ dependencies {
 
     val navVersion = "2.5.3"
     implementation("androidx.navigation:navigation-compose:$navVersion")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
 }
 
 // Allow references to generated code
