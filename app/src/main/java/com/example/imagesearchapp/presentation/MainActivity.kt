@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.imagesearchapp.presentation.search_images.SearchImagesScreen
 import com.example.imagesearchapp.presentation.ui.theme.ImageSearchAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
                         // NavHostBuilderは最後の引数かつ関数なのでNavHostBuilderは外に出せる
                         // 画像検索画面
                         composable(route = ScreenRoute.SearchImagesScreen.route) {
-                            // TODO
+                            SearchImagesScreen()
                         }
                         // 画像詳細画面
                         composable(route = ScreenRoute.ImageDetailScreen.route) {
