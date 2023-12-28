@@ -54,11 +54,7 @@ fun ImageDetailScreen(
 
             else -> {
                 state.imageDetail?.let { imageDetail ->
-                    AsyncImage(
-                        model = imageDetail.imageUrl,
-                        contentDescription = imageDetail.description,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
+                    ImageDetailContent(imageDetail = imageDetail)
                 }
             }
         }
@@ -102,12 +98,12 @@ fun ImageDetailContent(
                 text = imageDetail.description ?: "No description",
                 style = MaterialTheme.typography.labelMedium,
             )
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = imageDetail.photographer ?: "Unknown photographer",
                 style = MaterialTheme.typography.bodySmall,
             )
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             CountLabel(
                 imageVector = Icons.Default.Favorite,
                 count = imageDetail.likes ?: 0,
@@ -116,9 +112,9 @@ fun ImageDetailContent(
             CountLabel(
                 imageVector = Icons.Default.Share,
                 count = imageDetail.downloads ?: 0,
-                iconTint = Color.Green
+                iconTint = Color.Green,
             )
-            Spacer(modifier = Modifier.height(5.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Text(text = "Camera: ${imageDetail.camera}")
             Text(text = "Location: ${imageDetail.location}")
         }
