@@ -3,9 +3,7 @@ package com.example.imagesearchapp.presentation.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +16,7 @@ fun CountLabel(
     count: Int,
     iconTint: Color,
     modifier: Modifier = Modifier,
+    color: Color = LocalContentColor.current.copy(alpha = LocalContentAlpha.current),
 ) {
     Row(modifier = modifier) {
         Icon(
@@ -28,8 +27,8 @@ fun CountLabel(
         Spacer(modifier = Modifier.width(5.dp))
         Text(
             text = count.toString(),
-            color = Color.White,
-            style = MaterialTheme.typography.bodyMedium,
+            color = color,
+            style = MaterialTheme.typography.body1,
         )
     }
 }
