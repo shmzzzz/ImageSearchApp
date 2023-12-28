@@ -12,6 +12,10 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -61,6 +65,13 @@ fun ImageDetailContent(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
         Box(modifier = Modifier.heightIn(min = 200.dp)) {
+            var isLoadingImage by remember { mutableStateOf(true) }
+            if (isLoadingImage) {
+                CircularProgressIndicator(
+                    modifier = Modifier.align(Alignment.Center),
+                )
+            }
+
             AsyncImage(
                 model = imageDetail.imageUrl,
                 contentDescription = imageDetail.description,
@@ -73,7 +84,9 @@ fun ImageDetailContent(
                             bottomStartPercent = 5,
                             bottomEndPercent = 5,
                         )
-                    )
+                    ),
+                // 通信成功時はローディングを完了させる
+                onSuccess = { isLoadingImage = false }
             )
         }
     }
