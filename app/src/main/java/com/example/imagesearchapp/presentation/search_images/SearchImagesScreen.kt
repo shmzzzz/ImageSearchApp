@@ -1,10 +1,14 @@
 package com.example.imagesearchapp.presentation.search_images
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.imagesearchapp.presentation.search_images.components.ImageThumbnail
+import com.example.imagesearchapp.presentation.search_images.components.SearchBar
 
 @Composable
 fun SearchImagesScreen(
@@ -12,10 +16,22 @@ fun SearchImagesScreen(
 ) {
     // ViewModelが管理しているStateを参照する
     val state = viewModel.state.value
-    // リスト表示を作成する
-    LazyColumn {
-        items(state.images) { image ->
-            ImageThumbnail(image = image, onClick = {})
+
+    // 検索窓を表示する
+    Scaffold(
+        topBar = {
+            SearchBar(
+                searchText = "",
+                onSearchTextChanged = {},
+                onDone = {})
+        }
+    ) { paddingValue ->
+        // リスト表示を作成する
+        LazyColumn(modifier = Modifier.padding(paddingValue)) {
+            items(state.images) { image ->
+                ImageThumbnail(image = image, onClick = {})
+            }
         }
     }
+
 }
