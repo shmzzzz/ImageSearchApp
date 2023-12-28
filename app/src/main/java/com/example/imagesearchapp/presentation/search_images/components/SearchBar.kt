@@ -1,5 +1,6 @@
 package com.example.imagesearchapp.presentation.search_images.components
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
@@ -8,6 +9,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -22,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -39,7 +42,9 @@ fun SearchBar(
     val focusRequester = remember { FocusRequester() }
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    TopAppBar {
+    TopAppBar(
+        backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White
+    ) {
         OutlinedTextField(
             value = searchText,
             onValueChange = onSearchTextChanged,
@@ -51,7 +56,10 @@ fun SearchBar(
                 }
                 .focusRequester(focusRequester),
             placeholder = {
-                Text(text = placeholderText)
+                Text(
+                    text = placeholderText,
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black
+                )
             },
             trailingIcon = {
                 IconButton(onClick = { onSearchTextChanged("") }) {
@@ -67,7 +75,10 @@ fun SearchBar(
             keyboardActions = KeyboardActions(onDone = {
                 keyboardController?.hide()
                 onDone()
-            })
+            }),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = if (isSystemInDarkTheme()) Color.White else Color.Black,  // 入力値のテキスト色
+            ),
         )
     }
     // アプリが起動したときに検索窓にフォーカスが当たるようにする
