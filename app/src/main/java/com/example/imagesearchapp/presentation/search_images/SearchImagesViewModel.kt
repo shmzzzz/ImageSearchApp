@@ -1,7 +1,9 @@
 package com.example.imagesearchapp.presentation.search_images
 
 import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.imagesearchapp.common.NetworkResponse
@@ -19,16 +21,19 @@ class SearchImagesViewModel @Inject constructor(
     // ViewModel内でのみ変更可能なState
     private val _state = mutableStateOf(SearchImagesState())
 
+    // 検索窓への入力
+    var query by mutableStateOf("programming")
+
     // View側から参照可能なState
     val state: State<SearchImagesState> = _state
 
     // アプリ起動時に画面が表示されないことを防ぐため、searchImages メソッドを実行する
     init {
-        searchImages("programming")
+        searchImages()
     }
 
     // 画像検索を実行する関数
-    fun searchImages(query: String) {
+    fun searchImages() {
         searchImagesUseCase(query).onEach { result ->
             when (result) {
                 is NetworkResponse.Success -> {

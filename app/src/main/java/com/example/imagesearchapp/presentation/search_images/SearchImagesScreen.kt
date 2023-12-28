@@ -21,9 +21,10 @@ fun SearchImagesScreen(
     Scaffold(
         topBar = {
             SearchBar(
-                searchText = "",
-                onSearchTextChanged = {},
-                onDone = {})
+                searchText = viewModel.query,
+                onSearchTextChanged = { viewModel.query = it },
+                onDone = { viewModel.searchImages() },
+            )
         }
     ) { paddingValue ->
         // リスト表示を作成する
