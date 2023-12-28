@@ -86,6 +86,8 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
 }
 
 // Allow references to generated code
