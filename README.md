@@ -1,6 +1,7 @@
 # ImageSearchApp
 
 - UnsplashAPIを使用した画像検索アプリ
+- システムテーマごとに色を変更する
 
 ## 画面仕様
 
@@ -39,7 +40,7 @@
 ## アーキテクチャ
 
 ```mermaid
-graph LR
+graph TD
     subgraph "Presentation レイヤー"
         A[画像検索画面]
         B[画像詳細画面]
