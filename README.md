@@ -46,12 +46,12 @@ graph TD
         B[画像詳細画面]
     end
     subgraph "Domain レイヤー"
-        C[SearchImagesUsecase]
+        C[SearchImagesUseCase]
         D[GetImageDetailUseCase]
     end
     subgraph "Data レイヤー"
         E[ImageRepository]
-        F[UnsplashApi]
+        F[UnsplashAPI]
     end
     A --> C
     B --> D
