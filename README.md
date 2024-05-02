@@ -1,7 +1,28 @@
 # ImageSearchApp
 
 - UnsplashAPIを使用した画像検索アプリ
-- システムテーマごとに色を変更する
+- システムテーマ(ライト/ダーク)ごとに色を変更する
+
+## 使用技術
+![](https://img.shields.io/badge/jetpack_compose-FF6441)
+![](https://img.shields.io/badge/viewmodel-FF6441)
+![](https://img.shields.io/badge/coroutine-FF6441)
+![](https://img.shields.io/badge/flow-FF6441)
+![](https://img.shields.io/badge/clean_architecture-FF6441)
+![](https://img.shields.io/badge/material3-FF6441)
+<br/>
+![](https://img.shields.io/badge/retrofit-v2.9.0-blue)
+![](https://img.shields.io/badge/moshi-v1.14.0-blue)
+![](https://img.shields.io/badge/hilt-v2.44-blue)
+![](https://img.shields.io/badge/navigation_compose-v2.7.6-blue)
+<br/>
+![](https://img.shields.io/badge/hilt_navigation-v1.0.0-blue)
+![](https://img.shields.io/badge/navigation_compose-v2.7.6-blue)
+![](https://img.shields.io/badge/coil-v2.5.0-blue)
+![](https://img.shields.io/badge/accompanist-v0.30.1-blue)
+
+## 構成
+![アーキテクチャ](https://github.com/shmzzzz/ImageSearchApp/assets/85086833/12413d94-bfec-45e2-957e-30d3e67c280d)
 
 ## 画面仕様
 
@@ -36,26 +57,3 @@
 詳細画面
 
 <img width="50%" src="readmefiles/詳細画面.png">
-
-## アーキテクチャ
-
-```mermaid
-graph TD
-    subgraph "Presentation レイヤー"
-        A[画像検索画面]
-        B[画像詳細画面]
-    end
-    subgraph "Domain レイヤー"
-        C[SearchImagesUseCase]
-        D[GetImageDetailUseCase]
-    end
-    subgraph "Data レイヤー"
-        E[ImageRepository]
-        F[UnsplashAPI]
-    end
-    A --> C
-    B --> D
-    E --> C
-    E --> D
-    E --> F
-```
