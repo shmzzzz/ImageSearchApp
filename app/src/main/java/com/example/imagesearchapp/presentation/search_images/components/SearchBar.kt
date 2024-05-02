@@ -2,6 +2,7 @@ package com.example.imagesearchapp.presentation.search_images.components
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -19,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -26,7 +28,10 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -43,6 +48,10 @@ fun SearchBar(
     val keyboardController = LocalSoftwareKeyboardController.current
 
     TopAppBar(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(68.dp)
+            .padding(bottom = 8.dp),
         backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White
     ) {
         OutlinedTextField(
@@ -50,7 +59,7 @@ fun SearchBar(
             onValueChange = onSearchTextChanged,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 2.dp)
+                .height(56.dp)
                 .onFocusChanged { focusState ->
                     showClearButton = focusState.isFocused
                 }
@@ -58,11 +67,17 @@ fun SearchBar(
             placeholder = {
                 Text(
                     text = placeholderText,
-                    color = if (isSystemInDarkTheme()) Color.White else Color.Black
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                    style = TextStyle(textAlign = TextAlign.Start),
+                    modifier = Modifier.align(alignment = Alignment.CenterVertically),
                 )
             },
             trailingIcon = {
-                IconButton(onClick = { onSearchTextChanged("") }) {
+                IconButton(
+                    onClick = {
+                        onSearchTextChanged("")
+                    }
+                ) {
                     Icon(
                         imageVector = Icons.Filled.Close,
                         contentDescription = "close",
@@ -77,6 +92,8 @@ fun SearchBar(
                 onDone()
             }),
             colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(0xFF03A9F4),
+                unfocusedBorderColor = Color(0xFF03A9F4),
                 textColor = if (isSystemInDarkTheme()) Color.White else Color.Black,  // 入力値のテキスト色
             ),
         )
@@ -85,4 +102,14 @@ fun SearchBar(
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
     }
+}
+
+@Preview
+@Composable
+fun SearchBarPreview() {
+    SearchBar(
+        searchText = "",
+        onSearchTextChanged = {},
+        onDone = {}
+    )
 }
