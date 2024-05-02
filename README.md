@@ -4,6 +4,7 @@
 - システムテーマ(ライト/ダーク)ごとに色を変更する
 
 ## 使用技術
+
 ![](https://img.shields.io/badge/jetpack_compose-FF6441)
 ![](https://img.shields.io/badge/viewmodel-FF6441)
 ![](https://img.shields.io/badge/coroutine-FF6441)
@@ -22,11 +23,12 @@
 ![](https://img.shields.io/badge/accompanist-v0.30.1-blue)
 
 ## 構成
+
 ![アーキテクチャ](https://github.com/shmzzzz/ImageSearchApp/assets/85086833/04e0c791-903a-4f95-9e20-fc1e84644a4e)
 
 ## 画面仕様
 
-**検索画面**
+**画像検索画面**
 
 - 検索バー
     - キーワードで検索可能
@@ -37,13 +39,13 @@
     - いいね数
 - アイテムタップで詳細画面に遷移する
 
- 画面表示時                      | 検索時                      
-----------------------------|--------------------------
- ![](readmefiles/画面表示時.png) | ![](readmefiles/検索時.png) 
+ 画面表示時               | 検索時               
+---------------------|-------------------
+ ![](docs/画面表示時.png) | ![](docs/検索時.png) 
 
 ---
 
-**詳細画面**
+**画像詳細画面**
 
 - 各項目を表示する
     - 画像
@@ -56,4 +58,4 @@
 
 詳細画面
 
-<img width="50%" src="readmefiles/詳細画面.png">
+<img width="50%" src="docs/詳細画面.png">
