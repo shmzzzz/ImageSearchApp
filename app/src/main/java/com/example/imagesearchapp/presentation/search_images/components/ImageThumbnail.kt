@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.imagesearchapp.common.AppColors
 import com.example.imagesearchapp.domain.model.Image
 import com.example.imagesearchapp.presentation.components.CountLabel
 import com.example.imagesearchapp.presentation.ui.theme.ImageSearchAppTheme
@@ -74,7 +75,7 @@ fun ImageThumbnail(
             CountLabel(
                 imageVector = Icons.Default.Favorite,
                 count = image.likes ?: 0,
-                iconTint = Color(0xFFF50B5B),
+                iconTint = Color(AppColors.FAVORITE),
                 color = Color.White,
             )
         }

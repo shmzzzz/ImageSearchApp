@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+import com.example.imagesearchapp.common.AppColors
 import com.example.imagesearchapp.domain.model.ImageDetail
 import com.example.imagesearchapp.presentation.components.CountLabel
 
@@ -81,33 +82,18 @@ fun ImageDetailContent(
                 contentDescription = imageDetail.description,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clip(
-                        RoundedCornerShape(
-                            topStartPercent = 0,
-                            topEndPercent = 0,
-                            bottomStartPercent = 5,
-                            bottomEndPercent = 5,
-                        )
-                    ),
+                    .padding(4.dp)
+                    .clip(RoundedCornerShape(15.dp)),
                 // 通信成功時はローディングを完了させる
                 onSuccess = { isLoadingImage = false }
             )
         }
         Column(modifier = Modifier.padding(10.dp)) {
-            Text(
-                text = imageDetail.description ?: "No description",
-                style = MaterialTheme.typography.labelMedium,
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = imageDetail.photographer ?: "Unknown photographer",
-                style = MaterialTheme.typography.bodySmall,
-            )
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             CountLabel(
                 imageVector = Icons.Default.Favorite,
                 count = imageDetail.likes ?: 0,
-                iconTint = Color.Magenta,
+                iconTint = Color(AppColors.FAVORITE),
             )
             CountLabel(
                 imageVector = Icons.Default.Share,
@@ -115,8 +101,58 @@ fun ImageDetailContent(
                 iconTint = Color.Green,
             )
             Spacer(modifier = Modifier.height(20.dp))
-            Text(text = "Camera: ${imageDetail.camera}")
-            Text(text = "Location: ${imageDetail.location}")
+            Column(
+                modifier = Modifier.align(Alignment.Start)
+            ) {
+                Text(
+                    text = "Description:",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = Color(AppColors.GRAY)
+                )
+                Text(
+                    text = imageDetail.description ?: "No description",
+                    style = MaterialTheme.typography.labelMedium,
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Column(
+                modifier = Modifier.align(Alignment.Start)
+            ) {
+                Text(
+                    text = "Photographer:", style = MaterialTheme.typography.labelLarge,
+                    color = Color(AppColors.GRAY)
+                )
+                Text(
+                    text = imageDetail.photographer ?: "Unknown photographer",
+                    style = MaterialTheme.typography.labelMedium,
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Column(
+                modifier = Modifier.align(Alignment.Start)
+            ) {
+                Text(
+                    text = "Camera:", style = MaterialTheme.typography.labelLarge,
+                    color = Color(AppColors.GRAY)
+                )
+                Text(
+                    text = imageDetail.camera ?: "Unknown camera",
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
+            Spacer(modifier = Modifier.height(10.dp))
+            Column(
+                modifier = Modifier.align(Alignment.Start)
+            ) {
+                Text(
+                    text = "Location:", style = MaterialTheme.typography.labelLarge,
+                    color = Color(0xFF5B5D64)
+                )
+                Text(
+                    text = imageDetail.location ?: "Unknown location",
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
         }
     }
 }
