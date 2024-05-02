@@ -26,6 +26,10 @@
 
 ![アーキテクチャ](https://github.com/shmzzzz/ImageSearchApp/assets/85086833/04e0c791-903a-4f95-9e20-fc1e84644a4e)
 
+## アプリ操作
+
+https://github.com/shmzzzz/ImageSearchApp/assets/85086833/47e3a2a2-8e8d-4013-b775-b584f8e41061
+
 ## 画面仕様
 
 **画像検索画面**
