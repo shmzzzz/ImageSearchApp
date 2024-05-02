@@ -26,7 +26,10 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -50,7 +53,7 @@ fun SearchBar(
             onValueChange = onSearchTextChanged,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 2.dp)
+                .padding(4.dp)
                 .onFocusChanged { focusState ->
                     showClearButton = focusState.isFocused
                 }
@@ -58,11 +61,16 @@ fun SearchBar(
             placeholder = {
                 Text(
                     text = placeholderText,
-                    color = if (isSystemInDarkTheme()) Color.White else Color.Black
+                    color = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                    style = TextStyle(textAlign = TextAlign.Center),
                 )
             },
             trailingIcon = {
-                IconButton(onClick = { onSearchTextChanged("") }) {
+                IconButton(
+                    onClick = {
+                        onSearchTextChanged("")
+                    }
+                ) {
                     Icon(
                         imageVector = Icons.Filled.Close,
                         contentDescription = "close",
@@ -77,6 +85,8 @@ fun SearchBar(
                 onDone()
             }),
             colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = Color(0xFF03A9F4),
+                unfocusedBorderColor = Color(0xFF03A9F4),
                 textColor = if (isSystemInDarkTheme()) Color.White else Color.Black,  // 入力値のテキスト色
             ),
         )
@@ -85,4 +95,14 @@ fun SearchBar(
     LaunchedEffect(Unit) {
         focusRequester.requestFocus()
     }
+}
+
+@Preview
+@Composable
+fun SearchBarPreview() {
+    SearchBar(
+        searchText = "",
+        onSearchTextChanged = {},
+        onDone = {}
+    )
 }

@@ -70,7 +70,7 @@ fun ImageThumbnail(
             CountLabel(
                 imageVector = Icons.Default.Favorite,
                 count = image.likes ?: 0,
-                iconTint = Color.Magenta,
+                iconTint = Color(0xFFF50B5B),
                 color = Color.White,
             )
         }
