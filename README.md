@@ -22,7 +22,7 @@
 ![](https://img.shields.io/badge/accompanist-v0.30.1-blue)
 
 ## 構成
-![アーキテクチャ](https://github.com/shmzzzz/ImageSearchApp/assets/85086833/12413d94-bfec-45e2-957e-30d3e67c280d)
+![アーキテクチャ](https://github.com/shmzzzz/ImageSearchApp/assets/85086833/04e0c791-903a-4f95-9e20-fc1e84644a4e)
 
 ## 画面仕様
 
