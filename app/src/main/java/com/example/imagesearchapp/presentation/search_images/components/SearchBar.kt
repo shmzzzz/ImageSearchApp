@@ -2,6 +2,7 @@ package com.example.imagesearchapp.presentation.search_images.components
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -19,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -46,6 +48,10 @@ fun SearchBar(
     val keyboardController = LocalSoftwareKeyboardController.current
 
     TopAppBar(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(68.dp)
+            .padding(bottom = 8.dp),
         backgroundColor = if (isSystemInDarkTheme()) Color.Black else Color.White
     ) {
         OutlinedTextField(
@@ -53,7 +59,7 @@ fun SearchBar(
             onValueChange = onSearchTextChanged,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(4.dp)
+                .height(56.dp)
                 .onFocusChanged { focusState ->
                     showClearButton = focusState.isFocused
                 }
@@ -62,7 +68,8 @@ fun SearchBar(
                 Text(
                     text = placeholderText,
                     color = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                    style = TextStyle(textAlign = TextAlign.Center),
+                    style = TextStyle(textAlign = TextAlign.Start),
+                    modifier = Modifier.align(alignment = Alignment.CenterVertically),
                 )
             },
             trailingIcon = {
