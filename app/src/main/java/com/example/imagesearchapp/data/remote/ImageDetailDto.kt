@@ -39,9 +39,9 @@ fun ImageDetailDto.toImageDetail(): ImageDetail {
         description = description,
         likes = likes,
         imageUrl = urls!!.raw!!,
-        photographer = user?.username,
-        camera = exif?.name,
-        location = "${location?.city}, ${location?.country}",
+        photographer = user?.username ?: "Unknown Photographer",
+        camera = exif?.name ?: "Unknown Camera",
+        location = "${location?.city ?: "Unknown City"}, ${location?.country ?: "Unknown Country"}",
         downloads = downloads,
     )
 }
