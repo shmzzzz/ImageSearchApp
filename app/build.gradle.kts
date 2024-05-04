@@ -75,7 +75,7 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
 
-    val moshiVersion = "1.14.0"
+    val moshiVersion = "1.15.1"
     implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
 
     val hiltVersion = "2.49"
@@ -91,7 +91,7 @@ dependencies {
     val coilVersion = "2.6.0"
     implementation("io.coil-kt:coil-compose:$coilVersion")
 
-    val accompanistVersion = "0.30.1"
+    val accompanistVersion = "0.34.0"
     implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
 
     val roomVersion = "2.6.1"
