@@ -78,7 +78,7 @@ dependencies {
     val moshiVersion = "1.15.1"
     implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
 
-    val hiltVersion = "2.49"
+    val hiltVersion = "2.51.1"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
