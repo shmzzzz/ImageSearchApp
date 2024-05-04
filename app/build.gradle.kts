@@ -70,24 +70,28 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    val retrofitVersion = "2.9.0"
+    val retrofitVersion = "2.11.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
 
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    val moshiVersion = "1.14.0"
+    implementation("com.squareup.moshi:moshi-kotlin:$moshiVersion")
 
-    val hiltVersion = "2.44"
+    val hiltVersion = "2.49"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 
-//    val navVersion = "2.5.3"
-    implementation("androidx.navigation:navigation-compose:2.7.6")
+    val navVersion = "2.7.7"
+    implementation("androidx.navigation:navigation-compose:$navVersion")
 
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    val hiltNavVersion = "1.2.0"
+    implementation("androidx.hilt:hilt-navigation-compose:$hiltNavVersion")
 
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    val coilVersion = "2.6.0"
+    implementation("io.coil-kt:coil-compose:$coilVersion")
 
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.30.1")
+    val accompanistVersion = "0.30.1"
+    implementation("com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion")
 }
 
 // Allow references to generated code
