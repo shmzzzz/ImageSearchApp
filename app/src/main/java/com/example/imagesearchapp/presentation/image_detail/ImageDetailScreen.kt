@@ -149,7 +149,7 @@ fun ImageDetailContent(
                     color = Color(0xFF5B5D64)
                 )
                 Text(
-                    text = if (imageDetail.location.isNullOrBlank() || imageDetail.location == "null, null") {
+                    text = if (imageDetail.location.isNullOrBlank()) {
                         "Unknown location"
                     } else {
                         imageDetail.location
