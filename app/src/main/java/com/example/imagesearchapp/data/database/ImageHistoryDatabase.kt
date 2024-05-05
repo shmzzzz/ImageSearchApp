@@ -7,7 +7,7 @@ import com.example.imagesearchapp.data.dao.ImageHistoryDatabaseDao
 import com.example.imagesearchapp.domain.model.ImageHistory
 import com.example.imagesearchapp.util.DateConverter
 
-@Database(entities = [ImageHistory::class], version = 1)
+@Database(entities = [ImageHistory::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverter::class)
 abstract class ImageHistoryDatabase : RoomDatabase() {
     abstract fun imageHistoryDao(): ImageHistoryDatabaseDao
